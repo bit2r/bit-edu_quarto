@@ -1,0 +1,55 @@
+---
+title: "시작하기"
+subtitle: "Install Docker Desktop, then check out the tutorials."
+page-layout: full
+image: /images/hero_right.png
+---
+
+## Step 1 : Install Docker Desktop
+아래 링크를 통해 각 OS에 맞는 `Docker Desktop`을 설치합니다. 
+[Docker Desktop for Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+
+[Mac with Intel chip](https://desktop.docker.com/mac/main/amd64/Docker.dmg){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"} 
+
+[Mac with Apple chip](https://desktop.docker.com/mac/main/arm64/Docker.dmg){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+
+## Step 2 : git clone
+
+clone from git 
+
+```bash
+$ git clone https://github.com/joygram/bit-server
+```
+::: callout-note
+#### Note
+git은 각 OS별로 설치가 되어 있다고 가정합니다. 
+:::
+
+## Step 3 : Install Visual Studio Code 
+
+[VsCode for Windows](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+
+[VsCode for Mac with Intel chip](https://code.visualstudio.com/sha/download?build=stable&os=darwin){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+
+
+[VsCode for Mac with Apple chip](https://code.visualstudio.com/sha/download?build=stable&os=darwin-arm64){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
+
+
+## Step 4 : docker run
+
+### unix like 
+
+```{.bash filename="bash"}
+cd docker
+./run_docker.sh
+```
+
+### windows 
+
+```{.powershell filename="powershell"}
+cd docker 
+./run_docker.cmd 
+```
+
+
+
