@@ -1,13 +1,83 @@
 ---
-title: Presentations
-format: html
-slide-format: revealjs
+title: bit-server
+sub-title: OS와 무관한 데이터 과학 개발환경 
+format:
+  revealjs:
+    slide-number : true 
+    preview-links: auto
+    incremental: true
 ---
 
-## Overview
+## 컨테이너 기반 환경
+Don't reinvent the wheel 
 
-Quarto supports a variety of formats for creating presentations, including:
+- 패키지 매니져 
+	- apt / dnf / yarn / pip / install2.r 
+- 가상 환경
+	- renv / venv / conda 
+- 컨테이너 기반 환경 
+	- docker 
 
-There are pros and cons to each of these formats. The most capable format by far is `revealjs` so is highly recommended unless you have specific requirements for Office or LaTeX output. Note that `revealjs` presentations can be presented as HTML slides or can be printed to PDF for easier distribution.
+## 도커 이미지의 재활용 
+- 적은 image baking time 
+- 이미지 튜닝이 손쉽다.
+- 오피셜 한 것을 사용 
+	- rocker / rstudio / rhub 
+- rocker/shiny를 사용 
 
-Below we'll describe the basic syntax for presentations that applies to all formats. See the format specific articles for additional details on their native capabilities.
+## 무엇 때문에 ? 
+- 업무환경의 일치 
+- 작업환경의 재구성 
+- 배포와 테스트 사이클 
+- 사소한 변경의 baking 피하기 
+- 환경과 개발환경의 통합 
+- 환경 세팅을 설명하는게 너무 힘들다 
+
+## 저장소 자체가 개발 환경이 된다.
+배포환경과 작업환경을 통합하게되면
+
+- `협업환경` 구성이 용이하게 됩니다.
+- 본연의 업무에 집중할 수 있게 됩니다.
+
+## 어디에 활용을?
+- 규모가 있는 어플리케이션 패키지의 개발 & 배포
+- 실습이 용이한 교육환경의 구축 
+- 환경 세팅을 `최소화`한 협업 개발 환경의 구성 
+
+## bit-server 
+포함하고 있는 환경 
+
+- nodejs / php / apache2 / ssh / mysql(mariadb) 
+- shiny-server / R and R package 
+- qurto / tex / vim 
+- python3 / shinylive
+
+## 써보기 
+- Docker Desktop 설치 
+- bit-server 내려받기 
+	- git clone https://github.com/joygram/bit-server.git 
+- 도커 이미지 실행 
+	- cd bit-server/docker 
+	- ./run_docker.[cmd,sh]
+
+## 워크스페이스 
+```{mermaid}
+sequenceDiagram
+bit_server -->> bit_server : git clone
+bit_server -->> docker : docker run & live update
+workspace -->> docker : run 
+workspace -->> workspace : authoring with vscode
+docker -->> web_browser : execute
+```
+
+## 프로젝트 붙여보기 
+- shinyApp
+	guess number
+- shinyLive 
+- quarto 
+- learnR
+
+## 개발 해보기 
+- digitalWriting 
+	- modify 
+	- apply
