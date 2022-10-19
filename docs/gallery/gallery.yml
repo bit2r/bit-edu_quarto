@@ -4,6 +4,6 @@
   tiles:
     - title: OS와 무관한 데이터 과학 개발 환경
       subtitle: bit-server 
-      href: https://quarto.org/docs/presentations/revealjs/demo/
-      code: https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd
+      href: docs/presentations/
+      code: https://github.com/joygram/bit-server_quarto/docs/presentations/index.qmd
       thumbnail: presentations/presentations-revealjs.png
