@@ -60,7 +60,7 @@ Don't reinvent the wheel
 	- cd bit-server/docker 
 	- ./run_docker.[cmd,sh]
 
-## 워크스페이스 
+## 개발환경(workspace) 
 ```{mermaid}
 sequenceDiagram
 bit_server -->> bit_server : git clone
