@@ -51,17 +51,18 @@ website:
     left:
       - text: "시작하기"
         href: docs/get-started/index.qmd
-      - text: "가이드"
-        href: docs/guide/index.qmd
       - text: "프레젠테이션"
         href: docs/presentations/index.qmd
       - text: "어플리케이션"
         menu:
           - text: "디지털 글쓰기"
+            icon: "pencil"
             href: docs/digitalwriting/index.qmd
           - text: "RStudio"
+            icon: "code"
             href: /rstudio/
           - text: "Code"
+            icon: "code-square"
             href: /vscode/
     right:
       - icon: link

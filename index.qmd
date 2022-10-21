@@ -26,7 +26,6 @@ image: /images/hero_right.png
 
 ::: {.hero-buttons}
 [시작해 볼까요?](docs/get-started/){.btn-action-primary .btn-action .btn .btn-success .btn-lg role="button"}
-[가이드](docs/guide/){#btn-guide .btn-action .btn .btn-info .btn-lg role="button"}
 ::: 
 
 <!-- content-block -->
