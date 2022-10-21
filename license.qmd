@@ -6,4 +6,3 @@ bit-server is open source software licensed under the [GNU GPL v2](https://www.g
 
 The bit-server source code is available at <https://github.com/joygram/bit-server/>
 
-bit-server is a registered trademark of RStudio. Please see our [trademark policy](trademark.qmd) for guidelines on usage of the bit-server trademark.
