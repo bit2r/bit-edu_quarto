@@ -48,8 +48,7 @@ Don't reinvent the wheel
 포함하고 있는 환경 
 - node / apache2 / ssh  
 - qurto 
-- R  
-- python 
+- R / python 
 
 ## 써보기 
 - Docker Desktop 설치 
@@ -78,6 +77,14 @@ docker -->> web_browser : execute
 - modify 
 - apply
 
+## 접근 주소 
+- /shiny/
+	workspace 이하  
+- / 
+	html 이하 
+- /rstudio/
+- /vscode/
+
 ## 같은환경 다른 프로젝트 
 
 ```{mermaid}
@@ -103,6 +110,23 @@ docker --> broswer : live result
 editor --> workspace : authoring
 ```
 
+## 구조 소개 - 1
+- docker 
+	- base 
+	- install_scripts 
+	- server 
+
+## 구조 소개 -2 
+- scripts 
+	- apache2
+	- bash 
+	- shiny-server 
+	- workspace_template
+
+## 구조 소개 - 3
+- workspace 
+	- conf 
+
 ## 커스터마이즈 
 - 도커 포트 
 - 웹 / shiny-server 설정 
@@ -112,4 +136,5 @@ workspace/conf
 	shiny-server
 	env.[cmd,sh]
 ```
-- 그외 가능성 
+
+## 그외 가능성 
