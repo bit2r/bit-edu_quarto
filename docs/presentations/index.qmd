@@ -1,6 +1,6 @@
 ---
 title: bit-server
-sub-title: OS와 무관한 데이터 과학 개발환경 
+sub-title: open-source scientific and technical development environment built on Docker 
 format:
   revealjs:
     slide-number : true 
@@ -29,28 +29,27 @@ Don't reinvent the wheel
 - 업무환경의 일치 
 - 작업환경의 재구성 
 - 배포와 테스트 사이클 
-- 사소한 변경의 baking 피하기 
-- 환경과 개발환경의 통합 
-- 환경 세팅을 설명하는게 너무 힘들다 
+- 사소한 변경으로 baking 
+- 환경과 개발환경의 `통합` 
+- 환경세팅을 `설명하는게` 힘들다 
 
 ## 저장소 자체가 개발 환경이 된다.
 배포환경과 작업환경을 통합하게되면
 
 - `협업환경` 구성이 용이하게 됩니다.
-- 본연의 업무에 집중할 수 있게 됩니다.
+- `업무`에 집중할 수 있습니다.
 
 ## 어디에 활용을?
 - 규모가 있는 어플리케이션 패키지의 개발 & 배포
-- 실습이 용이한 교육환경의 구축 
+- 실습이 용이한 `교육환경`의 구축 
 - 환경 세팅을 `최소화`한 협업 개발 환경의 구성 
 
 ## bit-server 
 포함하고 있는 환경 
-
-- nodejs / php / apache2 / ssh / mysql(mariadb) 
-- shiny-server / R and R package 
-- qurto / tex / vim 
-- python3 / shinylive
+- node / apache2 / ssh  
+- qurto 
+- R  
+- python 
 
 ## 써보기 
 - Docker Desktop 설치 
@@ -71,13 +70,46 @@ docker -->> web_browser : execute
 ```
 
 ## 프로젝트 붙여보기 
-- shinyApp
-	guess number
-- shinyLive 
-- quarto 
-- learnR
+- shiny
+- quarto
+- R  
 
 ## 개발 해보기 
-- digitalWriting 
-	- modify 
-	- apply
+- modify 
+- apply
+
+## 같은환경 다른 프로젝트 
+
+```{mermaid}
+stateDiagram 
+bit_server --> bit_server_a 
+bit_server --> bit_server_b
+bit_server_a --> custom_env_a
+bit_server_b --> custom_env_b
+custom_env_a --> workspace_project_a  
+custom_env_b --> workspace_project_b 
+```
+
+## 라이브패치 및 환경 
+```{mermaid}
+stateDiagram
+bit_server_git --> bit_server : git clone
+bit_server --> workspace
+projects --> workspace : clone project
+bit_server_git --> bit_server : live_update
+bit_server --> docker : run_bit_server
+workspace --> docker : mount
+docker --> broswer : live result 
+editor --> workspace : authoring
+```
+
+## 커스터마이즈 
+- 도커 포트 
+- 웹 / shiny-server 설정 
+```
+workspace/conf
+	apache2 
+	shiny-server
+	env.[cmd,sh]
+```
+- 그외 가능성 
