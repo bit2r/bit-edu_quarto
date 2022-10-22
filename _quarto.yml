@@ -64,6 +64,14 @@ website:
           - text: "Code"
             icon: "code-square"
             href: /vscode/
+          - text: "BlocklyML"
+            icon: "code"
+            href: http://localhost:5000
+          - text: "shinylive"
+            icon: "code"
+            href: /live/
+
+
     right:
       - icon: link
         href: https://r2bit.com
