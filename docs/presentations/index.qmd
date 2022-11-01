@@ -3,16 +3,18 @@ title: bit-server
 sub-title: open-source scientific and technical development environment built on Docker 
 format:
   revealjs:
-    slide-number : true 
+    view-distance: 5
+    slide-number: true 
     preview-links: auto
     incremental: true
+    theme: sky
 ---
 
 ## 컨테이너 기반 환경
 Don't reinvent the wheel 
 
 - 패키지 매니져 
-	- apt / dnf / yarn / pip / install2.r 
+	- apt / dnf / yarn / pip / cran
 - 가상 환경
 	- renv / venv / conda 
 - 컨테이너 기반 환경 
@@ -23,13 +25,16 @@ Don't reinvent the wheel
 - 이미지 튜닝이 손쉽다.
 - 오피셜 한 것을 사용 
 	- rocker / rstudio / rhub 
-- rocker/shiny를 사용 
+	- rocker/shiny 등 
+- ubuntu officeal 에서 파생  
+	- bit-server-base
+	- bit-server
 
 ## 무엇 때문에 ? 
-- 업무환경의 일치 
-- 작업환경의 재구성 
-- 배포와 테스트 사이클 
-- 사소한 변경으로 baking 
+- `업무환경`의 일치 
+- 작업환경의 `재구성 용이` 
+- 배포와 테스트 `사이클` 단축  
+- `사소한 변경`으로 이미지 생성 안하기  
 - 환경과 개발환경의 `통합` 
 - 환경세팅을 `설명하는게` 힘들다 
 
@@ -40,16 +45,16 @@ Don't reinvent the wheel
 - `업무`에 집중할 수 있습니다.
 
 ## 어디에 활용을?
-- 규모가 있는 어플리케이션 패키지의 개발 & 배포
+- 규모가 있는 `패키지의 개발 & 배포`
 - 실습이 용이한 `교육환경`의 구축 
 - 환경 세팅을 `최소화`한 협업 개발 환경의 구성 
 
 ## bit-server 
 포함하고 있는 환경 
-- node / apache2 / ssh  
+
+- web 
 - qurto 
-- R  
-- python 
+- R / python 
 
 ## 써보기 
 - Docker Desktop 설치 
@@ -70,13 +75,74 @@ docker -->> web_browser : execute
 ```
 
 ## 프로젝트 붙여보기 
+vscode를 활용한 원격 접속 
+
 - shiny
 - quarto
-- R  
+- shinylive 
+
+## 내부 구성 
+```{mermaid}
+stateDiagram
+user --> web_proxy 
+web_proxy --> shiny
+web_proxy --> R
+web_proxy --> code
+
+developer --> code 
+code --> ssh 
+ssh --> workspace 
+shiny --> workspace 
+R --> workspace 
+code --> workspace 
+
+workspace --> local 
+
+```
 
 ## 개발 해보기 
 - modify 
 - apply
+
+## 접근 주소 
+- /shiny/
+	workspace 이하  
+- / 
+	html 이하 
+- /rstudio/
+- /vscode/
+
+
+## 라이브패치 및 환경 
+```{mermaid}
+stateDiagram
+bit_server_git --> bit_server : git clone
+bit_server --> workspace : 
+projects --> workspace : clone project
+bit_server_git --> bit_server : live_update
+bit_server --> docker : run_bit_server
+workspace --> docker : mount
+docker --> broswer : live result 
+editor --> workspace : authoring
+```
+
+## 구조 소개 - 1
+- docker 
+	- base 
+	- install_scripts 
+	- server 
+
+## 구조 소개 -2 
+- scripts 
+	- apache2
+	- bash 
+	- shiny-server 
+	- workspace_template
+
+## 구조 소개 - 3
+- workspace 
+	- conf 
+
 
 ## 같은환경 다른 프로젝트 
 
@@ -90,19 +156,6 @@ custom_env_a --> workspace_project_a
 custom_env_b --> workspace_project_b 
 ```
 
-## 라이브패치 및 환경 
-```{mermaid}
-stateDiagram
-bit_server_git --> bit_server : git clone
-bit_server --> workspace
-projects --> workspace : clone project
-bit_server_git --> bit_server : live_update
-bit_server --> docker : run_bit_server
-workspace --> docker : mount
-docker --> broswer : live result 
-editor --> workspace : authoring
-```
-
 ## 커스터마이즈 
 - 도커 포트 
 - 웹 / shiny-server 설정 
@@ -112,4 +165,25 @@ workspace/conf
 	shiny-server
 	env.[cmd,sh]
 ```
-- 그외 가능성 
+
+## 서버로 배치 
+
+```{mermaid}
+stateDiagram 
+client --> web_proxy
+web_proxy --> service_docker
+service_docker --> web_proxy
+
+service_docker --> docker_proxy 
+docker_proxy --> service_docker
+docker_proxy --> bit_apps 
+```
+
+
+## TODO
+- 개발환경의 확장 
+- 보완성 
+- 다중 사용자의 고려 
+
+## END 
+-- 끝 -- 
