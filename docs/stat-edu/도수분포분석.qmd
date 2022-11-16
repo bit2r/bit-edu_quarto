@@ -1,11 +1,3 @@
-논의 할 내용 
-공유 
-digital writing로 
-
-도수 분포를 이용한 통계 분석 
-
-
-
 ## 1. 분석하고자하는 주제  결정 
 
 제목: 우리반 아이들이 좋아하는 아이돌  
@@ -76,18 +68,6 @@ hist(table(fav), xlab = "계급:아이돌", ylab = "빈도:선호도")
 hours = c(10,15,9,12,15)
 ```
 
-dataEditR
-
-
-
-영어의 표기도 함께 해줄 필요가 있다. 
-
-https://www.socscistatistics.com/descriptive/histograms/default.aspx
-
-![image-20221115174459851](%EB%8F%84%EC%88%98%20%EB%B6%84%ED%8F%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%ED%86%B5%EA%B3%84%20%EB%B6%84%EC%84%9D.assets/image-20221115174459851.png)
-
-
-
 (빈)도수분포표(Frequency Table)
 
 - 도수는 빈도수에서 `빈`을 빼고 쓴거예요.
@@ -156,8 +136,3 @@ hist(dist,                              # 자료(data)
      breaks=5)
      
 ```
-
-
-
-현실세상에서 사용할 수 있는 통계 교육이 이루어져야 한다. 
-
