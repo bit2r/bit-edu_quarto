@@ -51,8 +51,8 @@ website:
     left:
       - text: "시작하기"
         href: docs/get-started/index.qmd
-      - text: "프레젠테이션"
-        href: docs/presentations/index.qmd
+      - text: "통계와 디지털글쓰기"
+        href: docs/stat-edu/index.qmd
       - text: "어플리케이션"
         menu:
           - text: "통계패키지"
