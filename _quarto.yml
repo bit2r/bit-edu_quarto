@@ -7,7 +7,7 @@ project:
     - "/_redirects"
 
 website:
-  title: "bit-server"
+  title: "bit-edu"
   image: "server.png"
   favicon: "favicon.png"
   google-analytics: "G-FV9Z7SDZ0M"
@@ -80,12 +80,11 @@ website:
       collapse-level: 1
       contents:
         - text: "통계교육과 디지털 글쓰기"
-          href: docs/guide/index.qmd
-        - section: "통계교육과 디지털 글쓰기"
+          href: docs/stat-edu/index.qmd
+        - section: "수학통계교육의 개선"
           contents:
             - docs/stat-edu/수학통계교육의고찰.qmd
             - docs/stat-edu/온-오프라인의연계방안.qmd
-            - /app/digital-writing/
 
 bibliography: references.bib
 
