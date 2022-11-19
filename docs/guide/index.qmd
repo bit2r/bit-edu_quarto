@@ -5,5 +5,11 @@ page-layout: article
 anchor-sections: false
 search: false
 image: /images/hero_right.png
+listing:
+  id: guide-links
+  template: ../../ejs/links.ejs
+  contents: guide.yml
 ---
 
+::: {#guide-links .column-screen-inset-right style="max-width: 850px;"}
+:::

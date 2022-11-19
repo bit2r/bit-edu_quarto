@@ -13,7 +13,7 @@ website:
   google-analytics: "G-FV9Z7SDZ0M"
   open-graph: true
   twitter-card: true
-  site-url: https://r2bit.ddns.net
+  site-url: https://bit2edu.ddns.net
   repo-url: https://github.com/joygram/bit-server
   repo-actions: [edit, issue]
   page-navigation: true
@@ -36,8 +36,8 @@ website:
         href: license.qmd
     right:
       - icon: link
-        href: https://joygram.info
-        aria-label: joygram.info
+        href: https://bit2edu.ddns.net
+        aria-label: bit2edu.ddns.net
       - icon: github
         href: https://github.com/joygram/bit-server
         aria-label: joygram's GitHub
@@ -60,18 +60,12 @@ website:
           - text: "디지털 글쓰기"
             icon: "pencil"
             href: docs/digitalwriting/index.qmd
+          - text: "reeborg's world"
+            icon: "code-square"
+            href: /app/reeborg/
           - text: "RStudio"
             icon: "code"
             href: /rstudio/
-          - text: "Code"
-            icon: "code-square"
-            href: /vscode/
-          - text: "BlocklyML"
-            icon: "code"
-            href: http://localhost:5000
-          - text: "shinylive"
-            icon: "code"
-            href: /live/
 
 
     right:
@@ -81,6 +75,17 @@ website:
       - icon: github
         href: https://github.com/joygram/bit-server
         aria-label: bit-server GitHub
+  sidebar:
+    - id: guide
+      collapse-level: 1
+      contents:
+        - text: "통계교육과 디지털 글쓰기"
+          href: docs/guide/index.qmd
+        - section: "통계교육과 디지털 글쓰기"
+          contents:
+            - docs/stat-edu/수학통계교육의고찰.qmd
+            - docs/stat-edu/온-오프라인의연계방안.qmd
+            - /app/digital-writing/
 
 bibliography: references.bib
 
